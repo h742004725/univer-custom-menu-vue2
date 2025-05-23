@@ -44,6 +44,7 @@ import "@univerjs/sheets-formula-ui/lib/index.css";
 import "@univerjs/sheets-numfmt-ui/lib/index.css";
 import {UniverSheetsCustomMenuPlugin} from "@/plugin";
 import {DEFAULT_WORKBOOK_DATA} from "@/assets/default-workbook-data";
+import {setBaseData500} from "@/components/univer";
 // import {FUniver} from "@univerjs/core/facade";
 
 
@@ -70,7 +71,7 @@ export default {
         ),
       },
     });
-
+    console.log(univer);
     univer.registerPlugin(UniverRenderEnginePlugin);
     univer.registerPlugin(UniverFormulaEnginePlugin);
 
@@ -89,7 +90,7 @@ export default {
     univer.registerPlugin(UniverSheetsNumfmtUIPlugin);
     univer.registerPlugin(UniverSheetsCustomMenuPlugin);
 
-    univer.createUnit(UniverInstanceType.UNIVER_SHEET, DEFAULT_WORKBOOK_DATA);
+    univer.createUnit(UniverInstanceType.UNIVER_SHEET, setBaseData500());
 
     // const univerAPI = FUniver.newAPI(univer);
 

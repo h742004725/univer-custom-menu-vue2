@@ -16,7 +16,7 @@ export function CustomMenuItemDropdownListMainButtonFactory(): IMenuSelectorItem
         id: CUSTOM_MENU_DROPDOWN_LIST_OPERATION_ID,
         // The type of the menu item, in this case, it is a subitems
         type: MenuItemType.SUBITEMS,
-        icon: 'MainButtonIcon',
+        icon: '',
         tooltip: 'customMenu.dropdownList',
         title: 'customMenu.dropdown',
     };
@@ -27,7 +27,7 @@ export function CustomMenuItemDropdownListFirstItemFactory(): ICustomMenuButtonI
         id: DropdownListFirstItemOperation.id,
         type: MenuItemType.BUTTON,
         title: 'customMenu.itemOne',
-        icon: 'ItemIcon',
+        icon: '',
         positions: [CUSTOM_MENU_DROPDOWN_LIST_OPERATION_ID],
     };
 }
@@ -37,7 +37,7 @@ export function CustomMenuItemDropdownListSecondItemFactory(): ICustomMenuButton
         id: DropdownListSecondItemOperation.id,
         type: MenuItemType.BUTTON,
         title: 'customMenu.itemTwo',
-        icon: 'ItemIcon',
+        icon: '',
         positions: [CUSTOM_MENU_DROPDOWN_LIST_OPERATION_ID],
     };
 }
