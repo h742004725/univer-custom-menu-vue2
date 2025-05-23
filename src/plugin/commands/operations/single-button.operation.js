@@ -1,10 +1,9 @@
-import type { ICommand, IAccessor } from '@univerjs/core';
 import { CommandType } from '@univerjs/core';
 
-export const SingleButtonOperation: ICommand = {
+export const SingleButtonOperation = {
     id: 'custom-menu.operation.single-button',
     type: CommandType.OPERATION,
-    handler: async (accessor: IAccessor) => {
+    handler: async (accessor) => {
         alert('Single button operation');
         return true;
     },

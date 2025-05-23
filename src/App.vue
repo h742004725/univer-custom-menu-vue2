@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import UniverSheet from "@/components/UniverSheet1.vue";
+import UniverSheet from "@/components/UniverSheet.vue";
 
 export default {
   name: 'App',

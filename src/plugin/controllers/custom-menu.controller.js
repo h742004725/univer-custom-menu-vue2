@@ -1,24 +1,21 @@
-import { Disposable, ICommandService, Inject, Injector } from '@univerjs/core';
-import { ComponentManager, ContextMenuGroup, ContextMenuPosition, IMenuManagerService, RibbonOthersGroup, RibbonStartGroup } from '@univerjs/ui';
-import type { IMenuItemFactory } from '@univerjs/ui';
-import { IMenuService } from '@univerjs/ui';
+import { Disposable, ICommandService, Injector, setDependencies } from '@univerjs/core';
+import { ComponentManager, ContextMenuGroup, ContextMenuPosition, IMenuManagerService, RibbonStartGroup } from '@univerjs/ui';
 
 import { CustomMenuItemSingleButtonFactory } from './menu/single-button.menu';
 import { SingleButtonOperation } from '../commands/operations/single-button.operation';
-import { ButtonIcon } from '../components/button-icon/ButtonIcon';
-import { MainButtonIcon } from '../components/main-button-icon/MainButtonIcon';
-import { ItemIcon } from '../components/item-icon/ItemIcon';
+
 import { CUSTOM_MENU_DROPDOWN_LIST_OPERATION_ID, CustomMenuItemDropdownListFirstItemFactory, CustomMenuItemDropdownListMainButtonFactory, CustomMenuItemDropdownListSecondItemFactory } from './menu/dropdown-list.menu';
 import { DropdownListFirstItemOperation, DropdownListSecondItemOperation } from '../commands/operations/dropdown-list.operation';
 
+
 export class CustomMenuController extends Disposable {
-    constructor(
-        @Inject(Injector) private readonly _injector: Injector,
-        @ICommandService private readonly _commandService: ICommandService,
-        @IMenuManagerService private readonly _menuMangerService: IMenuManagerService,
-        @Inject(ComponentManager) private readonly _componentManager: ComponentManager,
-    ) {
+    constructor(_injector, _commandService, _menuMangerService, _componentManager) {
         super();
+
+        this._injector = _injector;
+        this._commandService = _commandService;
+        this._menuMangerService = _menuMangerService;
+        this._componentManager = _componentManager;
 
         this._initCommands();
         this._registerComponents();
@@ -27,8 +24,8 @@ export class CustomMenuController extends Disposable {
 
     /**
      * register commands
-    */
-    private _initCommands(): void {
+     */
+    _initCommands() {
         [
             SingleButtonOperation,
             DropdownListFirstItemOperation,
@@ -40,18 +37,16 @@ export class CustomMenuController extends Disposable {
 
     /**
      * register icon components
-    */
-    private _registerComponents(): void {
+     */
+    _registerComponents() {
         const componentManager = this._componentManager;
-        this.disposeWithMe(componentManager.register("ButtonIcon", ButtonIcon));
-        this.disposeWithMe(componentManager.register("MainButtonIcon", MainButtonIcon));
-        this.disposeWithMe(componentManager.register("ItemIcon", ItemIcon));
+        // 由于只使用的vue2和js，univer内部解析图标需要react，所以就不注册图标了
     }
 
     /**
      * register menu items
-    */
-    private _initMenus(): void {
+     */
+    _initMenus() {
         this._menuMangerService.mergeMenu({
             [RibbonStartGroup.OTHERS]: {
                 [SingleButtonOperation.id]: {
@@ -91,6 +86,9 @@ export class CustomMenuController extends Disposable {
                     }
                 }
             }
-        })
+        });
     }
 }
+
+// 为控制器类设置依赖
+setDependencies(CustomMenuController, [Injector, ICommandService, IMenuManagerService, ComponentManager]);

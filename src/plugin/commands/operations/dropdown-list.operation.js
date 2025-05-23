@@ -1,19 +1,18 @@
-import type { ICommand, IAccessor } from '@univerjs/core';
 import { CommandType } from '@univerjs/core';
 
-export const DropdownListFirstItemOperation: ICommand = {
+export const DropdownListFirstItemOperation = {
     id: 'custom-menu.operation.dropdown-list-first-item',
     type: CommandType.OPERATION,
-    handler: async (accessor: IAccessor) => {
+    handler: async (accessor) => {
         alert('Dropdown list first item operation');
         return true;
     },
 };
 
-export const DropdownListSecondItemOperation: ICommand = {
+export const DropdownListSecondItemOperation = {
     id: 'custom-menu.operation.dropdown-list-second-item',
     type: CommandType.OPERATION,
-    handler: async (accessor: IAccessor) => {
+    handler: async (accessor) => {
         alert('Dropdown list second item operation');
         return true;
     },
