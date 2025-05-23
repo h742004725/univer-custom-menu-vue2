@@ -4,6 +4,8 @@
     "module": "esnext",
     "baseUrl": "./",
     "moduleResolution": "node",
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
     "paths": {
       "@/*": [
         "src/*"
@@ -16,4 +18,4 @@
       "scripthost"
     ]
   }
-}
+} 

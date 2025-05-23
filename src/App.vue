@@ -1,17 +1,19 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <UniverSheet/>
+    <TSComponent title="我的TS组件示例"/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import UniverSheet from "@/components/UniverSheet.vue";
+import TSComponent from "@/components/TSComponent.vue";
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    UniverSheet,
+    TSComponent
   }
 }
 </script>
