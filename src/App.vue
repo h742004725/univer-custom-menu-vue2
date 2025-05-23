@@ -1,19 +1,16 @@
 <template>
   <div id="app">
     <UniverSheet/>
-    <TSComponent title="我的TS组件示例"/>
   </div>
 </template>
 
 <script>
-import UniverSheet from "@/components/UniverSheet.vue";
-import TSComponent from "@/components/TSComponent.vue";
+import UniverSheet from "@/components/UniverSheet1.vue";
 
 export default {
   name: 'App',
   components: {
-    UniverSheet,
-    TSComponent
+    UniverSheet
   }
 }
 </script>
