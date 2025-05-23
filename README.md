@@ -1,4 +1,5 @@
-# custom-menu-vue2
+# univer-custom-menu-vue2
+univer使用vue2和js引入react和ts来实现扩展右键
 
 ## Project setup
 ```
