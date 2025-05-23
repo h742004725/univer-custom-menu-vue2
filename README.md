@@ -1,5 +1,5 @@
 # univer-custom-menu-vue2
-univer使用vue2和jsts来实现扩展右键
+univer使用vue2和js引入ts来实现扩展右键
 
 ## Project setup
 ```
