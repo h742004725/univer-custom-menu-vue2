@@ -1,7 +1,7 @@
-import { LocaleService, Plugin, Injector, UniverInstanceType, setDependencies } from '@univerjs/core';
+import {Injector, LocaleService, Plugin, setDependencies, UniverInstanceType} from '@univerjs/core';
 import zhCN from './locale/zh-CN';
 import enUS from './locale/en-US';
-import { CustomMenuController } from './controllers/custom-menu.controller';
+import {CustomMenuController} from './controllers/custom-menu.controller';
 
 const SHEET_CUSTOM_MENU_PLUGIN = 'SHEET_CUSTOM_MENU_PLUGIN';
 
@@ -15,10 +15,16 @@ export class UniverSheetsCustomMenuPlugin extends Plugin {
         this._localeService = _localeService;
 
         console.log('Custom Menu Plugin');
-        this._localeService.load({
-            zhCN,
-            enUS
-        });
+
+        // 在调用前先检查
+        if (this._localeService && typeof this._localeService.load === 'function') {
+            this._localeService.load({
+                zhCN,
+                enUS
+            });
+        } else {
+            console.error('localeService.load is not available');
+        }
     }
 
     onStarting() {

@@ -1,11 +1,25 @@
-import { Disposable, ICommandService, Injector, setDependencies } from '@univerjs/core';
-import { ComponentManager, ContextMenuGroup, ContextMenuPosition, IMenuManagerService, RibbonStartGroup } from '@univerjs/ui';
+import {Disposable, ICommandService, Injector, setDependencies} from '@univerjs/core';
+import {
+    ComponentManager,
+    ContextMenuGroup,
+    ContextMenuPosition,
+    IMenuManagerService,
+    RibbonStartGroup
+} from '@univerjs/ui';
 
-import { CustomMenuItemSingleButtonFactory } from './menu/single-button.menu';
-import { SingleButtonOperation } from '../commands/operations/single-button.operation';
+import {CustomMenuItemSingleButtonFactory} from './menu/single-button.menu';
+import {SingleButtonOperation} from '../commands/operations/single-button.operation';
 
-import { CUSTOM_MENU_DROPDOWN_LIST_OPERATION_ID, CustomMenuItemDropdownListFirstItemFactory, CustomMenuItemDropdownListMainButtonFactory, CustomMenuItemDropdownListSecondItemFactory } from './menu/dropdown-list.menu';
-import { DropdownListFirstItemOperation, DropdownListSecondItemOperation } from '../commands/operations/dropdown-list.operation';
+import {
+    CUSTOM_MENU_DROPDOWN_LIST_OPERATION_ID,
+    CustomMenuItemDropdownListFirstItemFactory,
+    CustomMenuItemDropdownListMainButtonFactory,
+    CustomMenuItemDropdownListSecondItemFactory
+} from './menu/dropdown-list.menu';
+import {
+    DropdownListFirstItemOperation,
+    DropdownListSecondItemOperation
+} from '../commands/operations/dropdown-list.operation';
 
 
 export class CustomMenuController extends Disposable {
@@ -40,6 +54,7 @@ export class CustomMenuController extends Disposable {
      */
     _registerComponents() {
         const componentManager = this._componentManager;
+        // this.disposeWithMe(componentManager.register("ButtonIcon", ButtonIcon));
         // 由于只使用的vue2和js，univer内部解析图标需要react，所以就不注册图标了
     }
 
